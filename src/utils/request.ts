@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const configHttp = {
-    baseURL: "",
+    baseURL: "http://127.0.0.1:3000",
     timeout: 5000
 }
 
@@ -26,7 +26,7 @@ services.interceptors.request.use(
  */
 services.interceptors.response.use(
     response => {
-        return response;
+        return response.data;
     },
     error => {
         Promise.reject(error);

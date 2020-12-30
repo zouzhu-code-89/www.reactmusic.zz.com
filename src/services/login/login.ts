@@ -11,12 +11,18 @@ class LoginServices {
      * @param password 账号密码
      */
     public async login(userMessage:any) {
+        console.log(await this.accountRepeatRegistered(userMessage.phone));
         if(await this.accountRepeatRegistered(userMessage.phone)){
             cellphoneLogin({ phone:userMessage.phone, password:userMessage.password }).then((data: any) => {
                 if (data.loginType == 1) {
+                    console.log("---------- 用户登录成功 -----------");
                     return data;
+                }else{
+                    console.log("---------- 用户登录失败 -----------")
                 }
             });
+        }else{
+            console.log("---------- 该号码尚未注册 -----------")
         }
     }
 

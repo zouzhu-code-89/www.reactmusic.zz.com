@@ -1,0 +1,19 @@
+.contain{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.login_box{
+    padding: 30px 15px;
+    margin: 0px 100px 0px 0px;
+    width: 500px;
+    display: box;
+    display: -moz-box;
+    border-radius: 3px;
+    background-image: linear-gradient(to top, #e66465, #9198e5);
+}
+.login_button{
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.css';
 import loginServices from '../../services/login/login';
 import * as Antd from 'antd';
 
@@ -23,7 +24,7 @@ const LoginPageComponent: React.FC = (props: any) => {
      * @time 2020/12/27
      */
     let userLogin = () => {
-        alert("触发登录回调成功 ！！");
+        loginServices.login(loginFrom);
     }
 
     /**
@@ -40,32 +41,32 @@ const LoginPageComponent: React.FC = (props: any) => {
     }
 
     return (
-        <>
-            <Antd.Form name="basic" initialValues={{ remember: true }} 
-                                    onFinish={ submitFromStart.onFinish } 
-                                    onFinishFailed={ submitFromStart.onFinishFailed }>
-                <Antd.Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
-                >
-                    <Antd.Input value={ loginFrom.phone } onChange={(event) => { setLoginFroms(Object.assign({}, loginFrom, { ['phone']: event.target.value })) }}/>
-                </Antd.Form.Item>
-                <Antd.Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                    <Antd.Input.Password value={ loginFrom.password } onChange={(event) => { setLoginFroms(Object.assign({}, loginFrom, { ['password']: event.target.value })) }}/>
-                </Antd.Form.Item>
-            </Antd.Form>
-            <Antd.Button type="primary">注册</Antd.Button>
-            <div>
-                phone : { loginFrom.phone }
-                <br/>
-                password : { loginFrom.password }
+        <div className="contain">
+            <div className="login_box">
+                <h3>Login User</h3>
+                <Antd.Form name="basic" initialValues={{ remember: true }} 
+                                        onFinish={ submitFromStart.onFinish } 
+                                        onFinishFailed={ submitFromStart.onFinishFailed }>
+                    <Antd.Form.Item
+                        name="username"
+                        rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                        <Antd.Input placeholder="请输入邮箱、电话号"
+                                    value={ loginFrom.phone } 
+                                    onChange={(event) => { setLoginFroms(Object.assign({}, loginFrom, { ['phone']: event.target.value })) }}/>
+                    </Antd.Form.Item>
+                    <Antd.Form.Item
+                        name="password"
+                        rules={[{ required: true, message: 'Please input your password!' }]}
+                    >
+                        <Antd.Input.Password placeholder="请输入账号密码"
+                                             value={ loginFrom.password } 
+                                             onChange={(event) => { setLoginFroms(Object.assign({}, loginFrom, { ['password']: event.target.value })) }}/>
+                    </Antd.Form.Item>
+                    <Antd.Button type="primary" block={ true } loading={ false } shape="round" onClick={ userLogin } >登录</Antd.Button>
+                </Antd.Form>
             </div>
-        </>
+        </div>
     )
 }
 
