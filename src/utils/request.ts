@@ -5,6 +5,8 @@ const configHttp = {
     timeout: 5000
 }
 
+const errorCode:Array<Number> = [500, 501, 502, 503, 504, 505];
+
 const services = axios.create(configHttp);
 
 /**
@@ -26,10 +28,14 @@ services.interceptors.request.use(
  */
 services.interceptors.response.use(
     response => {
-        return response.data;
+        if(errorCode.includes(response.data.code)){
+            return Promise.reject(new Error(response.data.message || 'Error'))
+        }else{
+            return Promise.resolve(response.data);
+        }
     },
     error => {
-        Promise.reject(error);
+        alert(error);
     }    
 );
 

@@ -1,6 +1,7 @@
 /**
- * @description 登录模块，登录的一系列事务处理，校验邮箱、验证码等等
- * @time 2020/12/23
+ * 登录模块，登录的一系列事务处理，校验邮箱、验证码等等
+ * @time 2021/01/11
+ * @author zouzhu
  */
 import { cellphoneLogin, cellphoneIsRegister, registerAccount } from "../../api/login";
 
@@ -11,18 +12,16 @@ class LoginServices {
      * @param password 账号密码
      */
     public async login(userMessage:any) {
-        console.log(await this.accountRepeatRegistered(userMessage.phone));
-        if(await this.accountRepeatRegistered(userMessage.phone)){
-            cellphoneLogin({ phone:userMessage.phone, password:userMessage.password }).then((data: any) => {
-                if (data.loginType == 1) {
-                    console.log("---------- 用户登录成功 -----------");
-                    return data;
-                }else{
-                    console.log("---------- 用户登录失败 -----------")
-                }
-            });
+        let isPhoneRegistered = await this.accountRepeatRegistered(userMessage.phone);
+        if(isPhoneRegistered){
+            const data:any = await cellphoneLogin({ phone:userMessage.phone, password:userMessage.password });
+            if (data.loginType == 1){
+                return 'ok';
+            }else{
+                return '账号密码错误';
+            }
         }else{
-            console.log("---------- 该号码尚未注册 -----------")
+            return '该账号尚未注册 ！'
         }
     }
 
@@ -48,14 +47,9 @@ class LoginServices {
      * 检测电话号码账号是否注册
      * @param phone 
      */
-    private accountRepeatRegistered(phone: string):Promise<boolean>{
-        return cellphoneIsRegister({ phone }).then((data: any) => {
-            if (data.exist == 1) {
-                return true;
-            } else {
-                return false;
-            }
-        })
+    private async accountRepeatRegistered(phone: string){
+        const data = await cellphoneIsRegister({ phone }) as any;
+        return data.exist == 1 ? true : false;
     }
 }
 

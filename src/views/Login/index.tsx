@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 import loginServices from '../../services/login/login';
 import * as Antd from 'antd';
+import router from '../../router/router';
 
 const LoginPageComponent: React.FC = (props: any) => {
     const [loginFrom, setLoginFroms] = useState({
@@ -16,7 +17,7 @@ const LoginPageComponent: React.FC = (props: any) => {
      * @time 2020/12/27
      */
     let userRegister = () => {
-        loginServices.registeredAccount(loginFrom);
+        // loginServices.registeredAccount(loginFrom);
     }
 
     /**
@@ -24,7 +25,15 @@ const LoginPageComponent: React.FC = (props: any) => {
      * @time 2020/12/27
      */
     let userLogin = () => {
-        loginServices.login(loginFrom);
+        loginServices.login(loginFrom).then((message:any) => {
+            if(message == 'ok'){
+                props.history.push({
+                    pathname: "/home"
+                })
+            }else{
+                alert(message);
+            }
+        });
     }
 
     /**
@@ -33,10 +42,12 @@ const LoginPageComponent: React.FC = (props: any) => {
      */
     const submitFromStart = {
         onFinish: () => {
-            userLogin();
+            Antd.message.info('This is a normal message');
+            // userLogin();
         },
         onFinishFailed: () => {
-            userRegister();
+            Antd.message.info('This is a normal message');
+            // userRegister();
         }
     }
 
