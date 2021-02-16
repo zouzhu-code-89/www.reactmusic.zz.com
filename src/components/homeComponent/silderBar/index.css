@@ -1,0 +1,78 @@
+ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    color: #454545;
+}
+li a{
+    display: block;
+}
+li a:hover{
+    color: #454545;
+}
+.silbar{
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+.silbar_item1 li{
+    margin-bottom: 5px;
+}
+.silbar_item1 li:hover{
+    background-color: #f6f6f7;
+}
+.silbar_item1 li span{
+    margin-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
+.silbar_item1 li:hover span{
+    font-weight: bold;
+}
+
+
+.silbar_item2{
+    margin-top: 10px;
+}
+.silbar_item2 .silbar_name{
+    color: #a6a6a6;
+    font-size: 13px;
+    margin-left: 10px;
+    line-height: 35px;
+}
+.silbar_item2 ul li{
+    margin-bottom: 5px;
+    line-height: 35px;
+}
+.silbar_item2 ul li span{
+    margin-left: 10px;
+}
+.silbar_item2 ul li:hover{
+    background-color: #f6f6f7;
+}
+
+
+.silbar_item3{
+    margin-top: 10px;
+}
+.silbar_item3_header{
+    display: flex;
+    justify-content: space-between;
+    line-height: 35px;
+}
+.silbar_item3 .silbar_name{
+    color: #a6a6a6;
+    font-size: 13px;
+    margin-left: 10px;
+}
+.silbar_item3 ul li{
+    margin-bottom: 5px;
+    line-height: 35px;
+}
+.silbar_item3 ul li span{
+    margin-left: 10px;
+}
+.silbar_item3 ul li:hover{
+    background-color: #f6f6f7;
+}

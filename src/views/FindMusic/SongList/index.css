@@ -47,3 +47,27 @@ span.hot::before{
     color: red;
     font-size: 2px;
 }
+/* 歌单列表 */
+.categor_list{
+    width: 100%;
+    display: flex;
+}
+.categor_list_item{
+    width: 200px;
+}
+.categor_list_item{
+    position: relative;
+}
+.categor_list_item img{
+    width: 100%;
+}
+.antour{
+    position: absolute;
+    bottom: 50px;
+    display: block;
+    font-size: 10px;
+    color: white;
+}
+.introduce{
+    font-size: 13px;
+}

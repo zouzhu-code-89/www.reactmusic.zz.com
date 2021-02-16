@@ -1,0 +1,120 @@
+.ant-layout{
+    position: relative;
+}
+.ant-layout-header{
+    height: 7vh;
+    background-color: #ec4141;
+}
+.ant-layout-has-sider{
+    height: 93vh;
+}
+.ant-layout-content{
+    background-color: #ffffff;
+}
+.ant-layout-sider-children{
+    background-color: #ffffff;
+    border-right: 1px solid #e1e1e1;
+}
+.home_header{
+    display: flex;
+}
+.home_logo{
+    width: 35px;
+    height: 35px;
+    margin-top: 13px;
+}
+.home_title{
+    color: #ffffff;
+    font-size: 19px;
+    margin-left: 5px;
+    line-height: 60px;
+}
+.ant-layout-footer{
+    width: 100%;
+    display: block;
+    position: absolute;
+    background-color: #f6f6f8;
+    bottom: 0;
+    height: 9vh;
+    padding: 0px 30px 0px 15px;
+    border-top: 1px solid #e1e1e1;
+}
+.footer_play{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_play_item1{
+    display: flex;
+    align-items: center;
+}
+.footer_play_item1 div:nth-child(1){
+    border-radius: 3px;
+    overflow: hidden;
+    margin-right: 12px;
+}
+.footer_play_item1 div:nth-child(1) img{
+    width: 45px;
+    height: 45px;
+}
+.footer_play_item1 div:nth-child(2) p{
+    margin-bottom: 0;
+}
+.footer_play_item1 div:nth-child(2) p:first-child{
+    font-size: 16px;
+}
+.footer_play_item1 div:nth-child(2) p:last-child{
+    font-size: 13px;
+}
+.footer_play_item1 div:nth-child(3){
+    margin-left: 5px;
+    position: relative;
+}
+.footer_play_item1 div:nth-child(3) span{
+    position: absolute;
+    top: -9px;
+    font-size: 19px;
+    color: #8f8f90;
+}
+.footer_play_item1 div:nth-child(3) span:hover{
+    color: #ed6566;
+}
+.footer_play_item1 div:nth-child(3) span:hover svg{
+    /* fill: teal;
+    stroke: red !important; */
+}
+.footer_play_item2{
+    width: 500px;
+}
+.footer_play_item2 .footer_play_item2_1{
+    display: flex;
+    justify-content: center;
+}
+.footer_play_item2_1 div{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    margin: 0px 10px;
+}
+.footer_play_item2_1 div:hover{
+    color: #ed6566;
+}
+.footer_play_item2_1 div:nth-child(3){
+    border-radius: 50%;
+    background-color: #ebebed;
+    font-size: 25px;
+}
+.footer_play_item2_1 div:nth-child(3):hover{
+    background-color: #ddddde;
+}
+.footer_play_item2_1 div:nth-child(5){
+    font-weight: bold;
+}
+.footer_play_item2 .ant-progress-inner{
+    height: 3px;
+}
+.footer_play_item2 .ant-progress-bg{
+    height: 3px !important;
+}
